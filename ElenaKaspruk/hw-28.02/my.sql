@@ -16,3 +16,11 @@
 SELECT * FROM Products
 ORDER BY Price DESC
 LIMIT 1 OFFSET 2
+
+--2
+SELECT c.CustomerID, COUNT(o.OrderID) AS OrderCount
+FROM Customers c
+JOIN Orders o ON c.CustomerID = o.CustomerID
+GROUP BY c.CustomerID
+ORDER BY OrderCount DESC
+LIMIT 3
